@@ -8,9 +8,7 @@ const post = (path, data) => (
     .then(response => response.data)
 );
 
-const saveUser = (user) => {
-  return Auth.saveUser(user);
-}
+const saveUser = user => Auth.saveUser(user);
 
 export default {
   login: data => post('auth', data).then(saveUser),

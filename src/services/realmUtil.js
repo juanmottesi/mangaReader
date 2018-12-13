@@ -44,20 +44,20 @@ export default {
     Realm.open(RealmConfig)
       .then(realm => realm.objectForPrimaryKey(RealmSchema.User.name, 'realmUser'))
   ),
-  saveUser: (user) => {
-    return Realm.open(RealmConfig)
+  saveUser: user => (
+    Realm.open(RealmConfig)
       .then(realm => realm.write(() => realm.create(RealmSchema.User.name, { ...user, idREALM: 'realmUser' })))
-      .then(() => user);
-  },
+      .then(() => user)
+  ),
   getUser: () => (
     Realm.open(RealmConfig)
       .then(realm => realm.objectForPrimaryKey(RealmSchema.User.name, 'realmUser'))
   ),
   logout: () => (
     Realm.open(RealmConfig)
-      .then(realm => {
+      .then((realm) => {
         const user = realm.objectForPrimaryKey(RealmSchema.User.name, 'realmUser');
         realm.write(() => realm.delete(user));
       })
-  )
+  ),
 };

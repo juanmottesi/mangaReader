@@ -18,10 +18,11 @@ export default class Home extends Component {
     super(props);
     this.state = { user: { username: '' } };
   }
+
   componentDidMount() {
     Auth.getUser()
       .then(user => this.setState({ user }))
-      .catch(() => this.props.navigation.navigate('login'))
+      .catch(() => this.props.navigation.navigate('login'));
   }
 
   executeLogout() {

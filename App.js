@@ -6,14 +6,12 @@ import Loading from './src/Loading';
 
 const HomeStack = createStackNavigator(
   { home: { screen: Home } },
-  { headerMode: 'none', }
+  { headerMode: 'none' },
 );
 
 const LoginStack = createStackNavigator(
-  { 
-    login: { screen: Login },
-  },
-  { headerMode: 'none', }
+  { login: { screen: Login } },
+  { headerMode: 'none' },
 );
 
 const Stack = createSwitchNavigator(
@@ -24,7 +22,7 @@ const Stack = createSwitchNavigator(
   }, {
     initialRouteName: 'loading',
     headerMode: 'none',
-  }
+  },
 );
 
 export default createAppContainer(Stack);
